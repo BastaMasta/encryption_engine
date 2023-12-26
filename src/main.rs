@@ -13,16 +13,19 @@ fn main() {
                                          '¶','¸','¹','º','»','¿','×','ß','æ','ø','þ','Ɔ','Ɣ','ƕ',
                                          'Ɯ','ƛ','Ƨ','Ʃ','ƪ','Ʊ','ƿ','ȸ','ʬ','ʮ','ʪ','ʩ','ʢ','ʡ',
                                          'ʝ'];
-    for num in 0..5{
+    for _num in 0..5{
         let mut key_vec = chars_vec.clone();
         let mut val_vec = chars_vec.clone();
         let mut encr_hash : HashMap<char, char> = HashMap::new();
+        let mut decr_hash : HashMap<char, char> = HashMap::new();
         for i in key_vec {
             let index = rand::thread_rng().gen_range(0..val_vec.len());
             encr_hash.insert(i.clone(), val_vec[index].clone());
+            decr_hash.insert(val_vec[index].clone(), i.clone());
             val_vec.remove(index);
         }
         println!("{:?}", encr_hash);
+        println!("{:?}", decr_hash);
         println!("\n\n\n\n\n\n\n")
     }
 }
